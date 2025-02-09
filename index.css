@@ -1,0 +1,346 @@
+/* initialisation */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: crosshair;
+}
+
+/* titre */
+h1{
+    margin-top: 10vh;
+    color: #808080;
+    text-shadow: -20px -20px 2px #080808,
+            20px 20px 3px #222222;
+}
+
+
+/* body */
+body {
+    position: relative;
+    background-color: #151515;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    /* bordure de la zone (pour vérification des ajustement (debbug)) */
+    /* border: solid 2px blue; */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-image: url(ressources/img/fond.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    filter: blur(18px);
+    z-index: -1;
+}
+
+/* svg en fond */
+svg{
+    height: 100vh;
+    width: auto;
+    /* transform: scale(2.5); */
+    position: fixed;
+    fill: rgb(0, 0, 94);
+    stroke: #080808;
+    z-index: -1;
+
+    animation: bounceyMove 10s infinite;
+}
+
+
+@keyframes bounceyMove {
+    0%{
+        transform: scale(2.5);
+    }
+    50%{
+        transform: scale(3);
+    }
+    100%{
+        transform: scale(2.5);
+    }
+}
+
+/* responsive du svg */
+@media screen and (max-width: 700px) {
+    @keyframes bounceyMove {
+        0%{
+            transform: scale(1.2);
+        }
+        50%{
+            transform: scale(1.6);
+        }
+        100%{
+            transform: scale(1.2);
+        }
+    }
+
+    svg{
+        left: -100px;
+        top: -50px;
+    }
+
+    .presentation > .longText{
+        font-weight: 400;
+        background: linear-gradient(to right, #592fff, #ffffff, rgb(180, 0, 0));
+            -webkit-background-clip: text;
+            color: transparent; 
+    } 
+}
+
+
+/* header */
+header{
+    position: relative;
+    height: 25vh;
+    width: 100%;
+
+    /* bordure de la zone (pour vérification des ajustement (debbug)) */
+    /* border: solid 2px red; */
+}
+
+/* nav */
+nav{
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+
+    /* bordure de la zone (pour vérification des ajustement (debbug)) */
+    /* border: solid 5px purple; */
+}
+
+footer{
+    position:  fixed;
+    /* z-index: 100;
+    width: 100vh;
+    height: 100px; */
+    bottom: 0;
+    right: 1%;
+    margin: 1%;
+}
+
+.reseaux{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+img.icon{
+    width: 25px;
+    height: 25px;
+    margin: 5px 0;
+}
+
+img.icon:hover{
+    transform: scale(1.1);
+    animation: vibration 0.5s;
+}
+
+img.icon:active{
+    transform: scale(0.9);
+}
+
+
+@keyframes vibration {
+    0%{
+        transform: rotate(-45deg);
+    }
+    50%{
+        transform: rotate(45deg)
+    }
+    100%{
+        transform: rotate(-45deg)
+    }
+}
+
+/* container */
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+
+    /* bordure de la zone (pour vérification des ajustement (debbug)) */
+    /* border: solid 2px black; */
+}
+
+.subContainer{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: solid 2px rebeccapurple; */
+}
+
+
+.presentation{
+    margin-left: 10%;
+    width: 50%;
+}
+
+.longText{
+    background: linear-gradient(to right, #fff, #2756ff);
+            -webkit-background-clip: text;
+            color: transparent; 
+    font-weight: bold;
+}
+
+/* logo langages info */
+img.logo{
+    transition: 1s;
+    width: 100px;
+    height: 100px;
+    margin: 5px 15px;
+}
+
+/* profil */
+.profil{
+    border-radius: 100%;
+    background: #151515;
+    box-shadow:  15px -15px 1.5px #080808,
+             -15px 15px 1.5px #222222;
+
+    width: 150px;
+    height: 150px;
+
+    background-image: url(ressources/profil/profil.png);
+    background-size: 150%;
+
+    position: relative;
+    /* margin-left: 20%;
+    margin-top: 30%; */
+
+    transition: all 0.5s;
+    cursor: pointer;
+
+    margin-bottom: 10px;
+}
+/* .profil:hover{
+    transition: 0.2s;
+    box-shadow:  5px -5px 0px #080808,
+             -5px 5px 0px #222222;
+    transform: scale(1.05);
+} */
+.profil:hover{
+    transition: all 0.2s;
+    box-shadow:  0 0  0px #222222,
+             0 0 0px #080808;
+    animation: bouncy 1s infinite ;
+    transform: scale(1.05);
+}
+
+@keyframes bouncy {
+    0%{
+        transform: scale(1.05);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1.05);
+    }
+}
+
+/* style des btn */
+button{
+    border-radius: 50px;
+    background: #151515;
+    box-shadow: inset -15px -15px 5px #080808,
+            inset 15px 15px 5px #222222;
+}
+
+/* balise a */
+a{
+    transition: 0.5s;
+    text-decoration: underline;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+a:hover{
+    text-decoration: none;
+    transform: scale(1.1);
+    background: linear-gradient(to right, #ff3300, #ffd0ac);
+            -webkit-background-clip: text;
+            color: transparent;
+}
+
+
+
+/* Cartes langage info */ 
+
+.langageIcons{
+    width: 100px;
+    height: auto;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 150px;
+    height: 200px;
+    perspective: 1000px;
+    font-family: sans-serif;
+    margin: 7.5px 10px;
+}
+  
+.title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+}
+  
+.flip-card-inner {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    height: 200px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid #022c5a;
+    border-radius: 1rem;
+  }
+  
+  .flip-card-front {
+    color: white;
+  }
+  
+  .flip-card-back {
+    color: white;
+    transform: rotateY(180deg);
+  }
+.stars{
+    color: yellow;
+}
