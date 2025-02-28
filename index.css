@@ -268,7 +268,7 @@ button{
 a{
     transition: 0.5s;
     text-decoration: underline;
-    color: #fff;
+    /* color: #fff; */
     cursor: pointer;
     
 }
